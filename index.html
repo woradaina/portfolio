@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: "Poppins", "Arial", sans-serif;
+    }
+
+    body {
+      background: #fff7fb;
+      color: #333;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: #e85d9e;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #e85d9e;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 8% 50px;
+      gap: 70px;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text small {
+      color: #e85d9e;
+      font-size: 18px;
+    }
+
+    .hero-text h1 {
+      font-size: 55px;
+      margin: 10px 0;
+    }
+
+    .hero-text h1 span {
+      color: #e85d9e;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #666;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 13px 28px;
+      background: #e85d9e;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #d94687;
+    }
+
+    .profile {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: #ffd6e8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(232,93,158,0.2);
+    }
+
+    .profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* SECTION */
+    section {
+      padding: 90px 8%;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 35px;
+      margin-bottom: 45px;
+      color: #e85d9e;
+    }
+
+    /* ABOUT */
+    .about {
+      background: white;
+    }
+
+    .about-box {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      line-height: 2;
+      font-size: 18px;
+      color: #555;
+    }
+
+    /* SKILLS */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .skill {
+      background: white;
+      padding: 30px;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateY(-8px);
+    }
+
+    .skill h3 {
+      color: #e85d9e;
+      margin-bottom: 10px;
+    }
+
+    /* PROJECT */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .project {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-7px);
+    }
+
+    .project img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 20px;
+    }
+
+    .project-content h3 {
+      color: #e85d9e;
+      margin-bottom: 10px;
+    }
+
+    .project-content p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      background: #ffe8f1;
+    }
+
+    .contact p {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #e85d9e;
+      color: white;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+
+      nav {
+        padding: 15px 5%;
+      }
+
+      nav ul {
+        gap: 10px;
+        font-size: 13px;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+      }
+
+      .hero-text h1 {
+        font-size: 40px;
+      }
+
+      .profile {
+        width: 220px;
+        height: 220px;
+      }
+
+      .skills,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">My Portfolio</div>
+
+    <ul>
+      <li><a href="#home">หน้าแรก</a></li>
+      <li><a href="#about">เกี่ยวกับฉัน</a></li>
+      <li><a href="#skills">ทักษะ</a></li>
+      <li><a href="#projects">ผลงาน</a></li>
+      <li><a href="#contact">ติดต่อ</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HOME -->
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+      <small>WELCOME TO MY PORTFOLIO</small>
+
+      <h1>
+        สวัสดีค่ะ 👋<br>
+        ฉันชื่อ <span>วรดา</span>
+      </h1>
+
+      <p>
+        นักเรียนที่สนใจด้านการออกแบบ การตลาด
+        และการสร้างสรรค์ผลงานใหม่ ๆ
+        ฉันชอบเรียนรู้สิ่งใหม่และพัฒนาตัวเองอยู่เสมอ
+      </p>
+
+      <a href="#projects" class="btn">ดูผลงานของฉัน</a>
+    </div>
+
+    <div class="profile">
+      <!-- เปลี่ยนรูปตรงนี้ -->
+      <img src="https://via.placeholder.com/300" alt="Profile">
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <h2 class="title">เกี่ยวกับฉัน</h2>
+
+    <div class="about-box">
+      <p>
+        สวัสดีค่ะ ฉันชื่อวรดา เป็นนักเรียนที่มีความสนใจในด้าน
+        การออกแบบ การตลาด เทคโนโลยี และการสร้างสรรค์ผลงาน
+        ฉันชอบการคิดไอเดียใหม่ ๆ และนำความคิดสร้างสรรค์
+        มาพัฒนาเป็นผลงานที่สามารถนำไปใช้ได้จริง
+      </p>
+
+      <p>
+        เป้าหมายของฉันคือการพัฒนาความสามารถของตัวเอง
+        และนำความรู้ที่ได้ไปต่อยอดในการเรียนและการทำงานในอนาคต
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- SKILLS -->
+  <section id="skills">
+
+    <h2 class="title">ทักษะของฉัน</h2>
+
+    <div class="skills">
+
+      <div class="skill">
+        <h3>🎨 การออกแบบ</h3>
+        <p>ออกแบบโปสเตอร์ โลโก้ และสื่อประชาสัมพันธ์</p>
+      </div>
+
+      <div class="skill">
+        <h3>📱 Digital Media</h3>
+        <p>สร้างสื่อและคอนเทนต์สำหรับช่องทางออนไลน์</p>
+      </div>
+
+      <div class="skill">
+        <h3>📢 การตลาด</h3>
+        <p>คิดไอเดียสินค้า การนำเสนอ และการโปรโมต</p>
+      </div>
+
+      <div class="skill">
+        <h3>💻 Coding</h3>
+        <p>พื้นฐาน HTML, CSS และ JavaScript</p>
+      </div>
+
+      <div class="skill">
+        <h3>💡 Creativity</h3>
+        <p>คิดไอเดียใหม่ ๆ และแก้ไขปัญหาอย่างสร้างสรรค์</p>
+      </div>
+
+      <div class="skill">
+        <h3>🤝 Teamwork</h3>
+        <p>ทำงานร่วมกับผู้อื่นและรับฟังความคิดเห็น</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROJECTS -->
+  <section id="projects" class="about">
+
+    <h2 class="title">ผลงานของฉัน</h2>
+
+    <div class="projects">
+
+      <div class="project">
+        <img src="https://via.placeholder.com/600x400" alt="Project 1">
+
+        <div class="project-content">
+          <h3>ออกแบบบรรจุภัณฑ์</h3>
+          <p>
+            ออกแบบบรรจุภัณฑ์สินค้าโดยใช้ความคิดสร้างสรรค์
+            และคำนึงถึงความสวยงามและการใช้งาน
+          </p>
+        </div>
+      </div>
+
+
+      <div class="project">
+        <img src="https://via.placeholder.com/600x400" alt="Project 2">
+
+        <div class="project-content">
+          <h3>ออกแบบโปสเตอร์</h3>
+          <p>
+            ผลงานออกแบบโปสเตอร์สำหรับนำเสนอข้อมูล
+            ให้มีความน่าสนใจและเข้าใจง่าย
+          </p>
+        </div>
+      </div>
+
+
+      <div class="project">
+        <img src="https://via.placeholder.com/600x400" alt="Project 3">
+
+        <div class="project-content">
+          <h3>โปรเจกต์การตลาด</h3>
+          <p>
+            คิดแนวทางการนำเสนอสินค้า กลุ่มเป้าหมาย
+            และแนวคิดในการประชาสัมพันธ์
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <h2 class="title">ติดต่อฉัน</h2>
+
+    <p>📧 Email:woradalambamrung16 @email.com</p>
+    <p>📱 Instagram: @1tsmexina</p>
+    <p>📍 Thailand</p>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 My Portfolio | Designed by Me 💗
+  </footer>
+
+
+  <script>
+
+    // แสดงข้อความเมื่อกดปุ่ม
+    document.querySelector(".btn").addEventListener("click", function() {
+      console.log("Welcome to my portfolio!");
+    });
+
+  </script>
+
+</body>
+</html>
